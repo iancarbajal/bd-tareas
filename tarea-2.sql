@@ -18,7 +18,7 @@ where o.ship_country in ('Brazil','Mexico','Argentina','Venezuela');
 select * from northwind.orders o 
 where o.ship_country not in ('Brazil','Mexico','Argentina','Venezuela');
 --/* Nombres completos de los empleados, nombres y apellidos unidos en un mismo registro.
-select employee_id, first_name||' '||last_name as full_name from employees e;
+select employee_id, first_name||' '||last_name as full_name from northwind.employees e;
 --/* ¿Cuánta lana tenemos en inventario?
 select sum(unit_price*units_in_stock)::numeric::money as Lana_en_inventario from products p;
 --/* ¿Cuantos clientes tenemos de cada país?
