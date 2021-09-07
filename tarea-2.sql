@@ -6,7 +6,7 @@ select contact_name from northwind.suppliers s where s.contact_title != 'Marketi
 select * from northwind.orders o 
 where o.ship_country !='USA';
 --/* ¿Qué productos de los que transportamos son quesos?
-select product_id, product_name from northwind.products p 
+select * from northwind.products p 
 where p.category_id = (select category_id from categories c where c.category_name='Dairy Products');
 --/* ¿Qué ordenes van a Bélgica o Francia?
 select * from northwind.orders o 
