@@ -1,8 +1,14 @@
+/* Cuales pagos tienen el monto 1.98, 7.98 o 9.98?*/
+select * from public.payment p where p.amount in (9.98,1.98,7.98);
+/* Cuales la suma total pagada por los clientes que tienen una letra A en la segunda posición de su apellido y una W en cualquier lugar después de la A?*/
+select sum(p.amount) as total 
+from public.payment p join public.customer c on p.customer_id=c.customer_id 
+where c.last_name like '_A%W%';
 /* Creacion tabla*/
 create table superheroes(
 id_superhero numeric(4) constraint pk_superhero primary key,
-name varchar(255) not null,
-email varchar(255) not null,
+nombre varchar(255) not null,
+email varchar(255) not null
 );
 
 create sequence superhero start 1 increment 1;
@@ -32,5 +38,5 @@ values('Wanda Maximoff', 'wanda.maximoff@avengers.org'),
 ('Rocket', 'shhhhhhhh@darknet.ru');
 
 /* Seleccionar emails validos*/
-select * from superheroes where email='_%@%.__%'
+select * from superheroes where email not like '%_@__%.__%'
 
